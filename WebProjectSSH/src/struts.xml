@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <constant name="struts.devMode" value="true" />
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.i18n.encoding" value="utf-8" />
+	<!-- Struts2上传文件的大小限制,设置为100M -->
+	<constant name="struts.multipart.maxSize" value="104857600" />
+	<include file="struts-test-cn-user.xml"></include>
+			
+	<package name="nfssign-default" extends="struts-default">
+		<global-results>
+			<result name="error">/WEB-INF/page/404.jsp</result>
+			<result name="root-exception">/WEB-INF/page/errorpage/errorpage.jsp</result>
+			<result name="base-exception">/WEB-INF/page/errorpage/errorpageNfsSign.jsp</result>
+		</global-results>
+		
+		<global-exception-mappings>
+			<exception-mapping result="root-exception" exception="java.lang.Exception"></exception-mapping>
+			<!--  
+			<exception-mapping result="base-exception" exception="com.hichina.caba.common.BasicException"></exception-mapping>
+		   -->
+		</global-exception-mappings> 
+    </package>
+</struts>

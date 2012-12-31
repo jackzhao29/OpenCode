@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="userManage" extends="struts-default">
+		<!-- <default-interceptor-ref name="mydefault"></default-interceptor-ref> -->
+		<global-results>
+			<result name="error">/WEB-INF/page/errorpage/errorpage.jsp</result>
+			<result name="error-404">/WEB-INF/page/errorpage/404.jsp</result>
+			<!--  
+			<result name="login" type="redirect">login.action</result>
+			-->
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="root-exception" exception="java.lang.Exception"></exception-mapping>
+			<exception-mapping result="base-exception" exception="com.nfschina.signsv.common.NfsSignException"></exception-mapping>
+		</global-exception-mappings>
+		
+		<action name="addUserInfo" class="com.cn.test.action.UserAction" method="addUser">
+			<result name="success">/WEB-INF/page/Success.jsp</result>
+			<result name="error">/WEB-INF/page/errorpage.jsp</result>
+		</action>
+		<action name="vShowUserInfo" class="com.cn.test.action.UserAction" method="showUserInfo">
+		  <result name="success">/WEB-INF/page/showView.jsp</result>
+		</action>
+		<action name="vShow" class="com.cn.test.action.UserAction" method="showUserInfoList">
+		  <result name="success">/WEB-INF/page/show.jsp</result>
+		</action>
+	 
+		<action name="selectUserInfo" class="com.cn.test.action.UserAction" method="showUserInfo">
+		 <result name="success">/WEB-INF/page/showView.jsp</result>
+		</action>
+		<action name="delUserInfo" class="com.cn.test.action.UserAction" method="deleteUserInfo">
+		 <result name="success">/WEB-INF/page/showView.jsp</result>
+		</action>
+		<action name="to_ModifyUserInfo" class="com.cn.test.action.UserAction" method="tooModifyUserInfo">
+		  <result name="success">/WEB-INF/page/modifyUserInfo.jsp</result>
+		</action>
+		
+		<action name="modifyUserInfo"  class="com.cn.test.action.UserAction" method="modifyUserInfoByUserId">
+		  <result name="success">/WEB-INF/page/showView.jsp</result>
+		  <result name="error">/WEB-INF/page/modifyUserInfo.jsp</result>
+		</action>
+	</package>
+	
+</struts>
